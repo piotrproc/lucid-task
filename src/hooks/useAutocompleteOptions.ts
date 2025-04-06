@@ -6,12 +6,12 @@ interface AutocompleteOption {
     score: number;
 }
 
-const useAutocompleteOptions = () =>
+const useAutocompleteOptions = (word: string) =>
     useQuery<AutocompleteOption[], Error>({
         queryKey: ['words'],
         queryFn: () =>
             axios
-                .get(`https://api.datamuse.com/words?sp=asd*`, {})
+                .get(`https://api.datamuse.com/words?sp=${word}*`, {})
                 .then((res) => res.data),
         staleTime: 1 * 60 * 1000, //1m
     });

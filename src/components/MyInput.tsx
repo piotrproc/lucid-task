@@ -8,7 +8,7 @@ function MyInput() {
     const incrCounter = useCounter((state:any) => state.incrCounter);
 
 
-    const { data, error, isLoading } = useAutocompleteOptions();
+    const { data, error, isLoading } = useAutocompleteOptions("asd");
     console.log(data);
 
     return (
