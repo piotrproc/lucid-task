@@ -1,6 +1,6 @@
 import React from 'react';
 import useCounter from "../hooks/useCounter";
-import useComments from "../hooks/useComments";
+import useAutocompleteOptions from "../hooks/useAutocompleteOptions";
 
 function MyInput() {
 
@@ -8,7 +8,7 @@ function MyInput() {
     const incrCounter = useCounter((state:any) => state.incrCounter);
 
 
-    const { data, error, isLoading } = useComments();
+    const { data, error, isLoading } = useAutocompleteOptions();
     console.log(data);
 
     return (
