@@ -17,7 +17,7 @@ function MyInput() {
         <>
             <div><span>Hello</span> {counter}</div>
             <button onClick={incrCounter}>Increment</button>
-            <input type="text"/>
+            <input type="text" name="foo"/>
             <Autocomplete
                 onInputChange={(_, newValue) => setInputValue(newValue)}
                 getOptionLabel={(option) => option.word || ""}
