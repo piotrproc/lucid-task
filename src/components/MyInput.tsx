@@ -3,7 +3,6 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import React from 'react';
 import useCounter from "../hooks/useCounter";
 import useAutocompleteOptions from "../hooks/useAutocompleteOptions";
-import top100Films from "../films";
 
 function MyInput() {
 
