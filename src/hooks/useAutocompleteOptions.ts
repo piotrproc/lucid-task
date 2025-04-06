@@ -13,6 +13,7 @@ const useAutocompleteOptions = (word: string) =>
             axios
                 .get(`https://api.datamuse.com/words?sp=${word}*`, {})
                 .then((res) => res.data),
+        enabled: word.length > 2,
         staleTime: 1 * 60 * 1000, //1m
     });
 

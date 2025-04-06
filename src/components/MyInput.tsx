@@ -1,18 +1,17 @@
 import {TextField} from "@material-ui/core";
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import React from 'react';
+import React, {useState} from 'react';
 import useCounter from "../hooks/useCounter";
 import useAutocompleteOptions from "../hooks/useAutocompleteOptions";
 
 function MyInput() {
 
+    const [inputValue, setInputValue] = useState("");
+
     const counter = useCounter((state:any) => state.counter);
     const incrCounter = useCounter((state:any) => state.incrCounter);
 
-    const { data:options, error, isLoading } = useAutocompleteOptions("asd");
-    console.log(options);
-
-    if(!options) return <></>;
+    const { data:options, error, isLoading }  = useAutocompleteOptions(inputValue);
 
     return (
         <>
@@ -20,9 +19,9 @@ function MyInput() {
             <button onClick={incrCounter}>Increment</button>
             <input type="text"/>
             <Autocomplete
+                onInputChange={(_, newValue) => setInputValue(newValue)}
                 getOptionLabel={(option) => option.word || ""}
-                disablePortal
-                options={options}
+                options={options || []}
                 renderInput={(params) => <TextField {...params} label="Movie" />}
             />
         </>
